@@ -203,6 +203,120 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);dis
 .reveal.on{opacity:1;transform:translateY(0);}
 .reveal-d1{transition-delay:0.05s;}
 .reveal-d2{transition-delay:0.12s;}
+
+/* Hide hamburger on desktop */
+.hamburger{display:none;}
+.mobile-menu{display:none;}
+@media(max-width:768px){.hamburger{display:flex;}.mobile-menu{display:flex;}}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — TABLET (max 1024px)
+═══════════════════════════════════════ */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:3rem;}
+  .exp-item{grid-template-columns:140px 1fr;gap:2rem;}
+  .edu-grid{grid-template-columns:1fr 1fr;}
+  .project-item{grid-template-columns:60px 1fr;gap:1rem;}
+  .proj-tags{display:none;}
+  .skill-row{grid-template-columns:60px 1fr auto;}
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — MOBILE (max 768px)
+═══════════════════════════════════════ */
+@media(max-width:768px){
+
+  /* Nav — hide links, show hamburger */
+  .nav-links{display:none;}
+  .theme-toggle{display:none;}
+  nav{padding:0 1.2rem;}
+  .nav-cta{padding:0.45rem 0.9rem;font-size:11px;}
+  .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:0.4rem;}
+  .hamburger span{display:block;width:22px;height:1.5px;background:var(--nav-fg);transition:all 0.3s;}
+  .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+  /* Mobile menu drawer */
+  .mobile-menu{position:fixed;top:60px;left:0;right:0;bottom:0;background:var(--nav-bg);z-index:190;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;transform:translateX(-100%);transition:transform 0.4s cubic-bezier(.25,.1,.25,1);}
+  .mobile-menu.open{transform:translateX(0);}
+  .mobile-menu a{font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;text-transform:uppercase;color:var(--nav-fg);text-decoration:none;opacity:0.6;transition:opacity 0.2s;}
+  .mobile-menu a:hover{opacity:1;}
+  .mobile-menu .mob-theme{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,237,232,0.4);background:none;border:none;font-family:'Syne',sans-serif;cursor:pointer;margin-top:1rem;}
+
+  /* Ticker */
+  .ticker-item{padding:0 1.2rem;font-size:9px;}
+
+  /* Hero */
+  .hero{padding:96px 1.2rem 0;min-height:100svh;}
+  .hero-title{font-size:clamp(3.5rem,18vw,6rem);-webkit-text-stroke-width:1.5px;}
+  .hero-scroll{flex-direction:column;align-items:flex-start;gap:1.5rem;}
+  .hero-desc{max-width:100%;font-size:13px;}
+  .hero-scroll-btn{flex-direction:row;align-items:center;}
+  .scroll-line{width:40px;height:1px;}
+  .scroll-line::after{width:100%;height:1px;top:0;animation:scrolllineh 1.8s ease-in-out infinite;}
+  @keyframes scrolllineh{0%{left:-100%}100%{left:200%}}
+
+  /* Sections */
+  .section{padding:3.5rem 1.2rem;}
+  .section-head{flex-direction:column;gap:0.8rem;margin-bottom:2.5rem;}
+  .section-title{font-size:clamp(2rem,10vw,3rem);}
+
+  /* About */
+  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .about-stats{grid-template-columns:1fr 1fr;}
+  .stat{padding:1.2rem 1rem;}
+  .stat-n{font-size:2.5rem;}
+
+  /* Projects */
+  .project-item{grid-template-columns:1fr;gap:0.8rem;padding:1.5rem 0;}
+  .proj-num{font-size:10px;}
+  .proj-name{font-size:1.2rem;}
+  .proj-tags{display:flex;justify-content:flex-start;margin-top:0.5rem;}
+
+  /* Skills */
+  .skill-row{grid-template-columns:40px 1fr auto;gap:1rem;padding:1.2rem 0;}
+  .skill-name{font-size:1rem;}
+  .skill-cat{font-size:9px;}
+
+  /* Experience */
+  .exp-item{grid-template-columns:1fr;gap:1rem;padding:2rem 0;}
+  .exp-role{font-size:1.2rem;}
+
+  /* Education */
+  .edu-grid{grid-template-columns:1fr;gap:1px;}
+  .edu-card{padding:1.5rem 1.2rem;}
+
+  /* Footer CTA */
+  .cta-section{padding:3.5rem 1.2rem;}
+  .cta-title{font-size:clamp(2.8rem,12vw,5rem);}
+  .cta-link-val{font-size:12px;word-break:break-all;}
+  .footer-bar{flex-direction:column;gap:0.5rem;text-align:center;}
+
+  /* Contact panel */
+  .panel{padding:2rem 1.2rem;}
+
+  /* Admin inbox — stack on mobile */
+  .admin-inbox{flex-direction:column;}
+  .admin-sidebar{width:100%;height:100vh;border-right:none;border-bottom:1px solid #1a1a1a;}
+  .admin-sidebar.msg-open{display:none;}
+  .admin-detail{display:none;}
+  .admin-detail.msg-open{display:flex;}
+  .admin-input{width:90%;max-width:280px;}
+  .admin-reply-box{padding:1rem;}
+  .admin-reply-actions{flex-wrap:wrap;}
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE (max 400px)
+═══════════════════════════════════════ */
+@media(max-width:400px){
+  .hero-title{font-size:clamp(3rem,16vw,4.5rem);}
+  .nav-cta{display:none;}
+  .about-stats{grid-template-columns:1fr 1fr;}
+  .stat-n{font-size:2rem;}
+}
+
 </style>
 </head>
 <body>
@@ -223,7 +337,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);dis
   </div>
   <!-- Inbox screen -->
   <div class="admin-inbox" id="admin-inbox">
-    <div class="admin-sidebar">
+    <div class="admin-sidebar" id="admin-sidebar">
       <div class="admin-sidebar-head">
         <span class="admin-sidebar-title">Inbox <span id="msg-count" style="color:#555;font-weight:400"></span></span>
         <button class="admin-close-btn" id="admin-close">✕ Close</button>
@@ -232,10 +346,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);dis
         <div class="admin-empty">Loading messages...</div>
       </div>
     </div>
-    <div class="admin-detail" id="admin-detail">
+    <div class="admin-detail" id="admin-detail-pane" style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
       <div class="admin-placeholder" id="admin-placeholder">← Select a message</div>
       <div id="admin-detail-content" style="display:none;flex:1;flex-direction:column;overflow:hidden;">
         <div class="admin-detail-head">
+          <button id="admin-back-btn" style="display:none;background:none;border:none;color:#555;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-family:Syne,sans-serif;cursor:pointer;margin-bottom:1rem;padding:0;">← Back</button>
           <div class="admin-detail-name" id="d-name"></div>
           <div class="admin-detail-meta" id="d-meta"></div>
           <div class="admin-detail-subject" id="d-subject"></div>
@@ -293,8 +408,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--nav-bg);dis
     </ul>
     <button class="theme-toggle" id="theme-btn">Dark mode</button>
     <button class="nav-cta" id="open-panel">Let's talk!</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" class="mob-link">About</a>
+  <a href="#projects" class="mob-link">Projects</a>
+  <a href="#experience" class="mob-link">Experience</a>
+  <a href="#skills" class="mob-link">Skills</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <button class="mob-theme" id="mob-theme-btn">☀ Light / Dark</button>
+  <button style="background:var(--nav-fg);color:var(--nav-bg);border:none;padding:0.8rem 2rem;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-family:Syne,sans-serif;font-weight:700;margin-top:1rem;cursor:pointer;" id="mob-contact-btn">Let's Talk!</button>
+</div>
 
 <!-- Ticker -->
 <div class="ticker-wrap">
@@ -499,11 +628,27 @@ if(!isTouchDevice){
 
 // ── Theme ──
 const themeBtn = document.getElementById('theme-btn');
-themeBtn.addEventListener('click',()=>{
+function toggleTheme(){
   const isDark = document.documentElement.dataset.theme==='dark';
   document.documentElement.dataset.theme = isDark?'light':'dark';
-  themeBtn.textContent = isDark?'Dark mode':'Light mode';
+  if(themeBtn) themeBtn.textContent = isDark?'Dark mode':'Light mode';
+}
+if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
+const mobThemeBtn = document.getElementById('mob-theme-btn');
+if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
+
+// ── Hamburger ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+function closeMobileMenu(){ hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open')?'hidden':'';
 });
+document.querySelectorAll('.mob-link').forEach(l=>l.addEventListener('click', closeMobileMenu));
+const mobContactBtn = document.getElementById('mob-contact-btn');
+if(mobContactBtn) mobContactBtn.addEventListener('click',()=>{ closeMobileMenu(); overlay.classList.add('open'); });
 
 // ── Contact Panel ──
 const overlay = document.getElementById('panel-overlay');
@@ -665,9 +810,28 @@ function renderMessageList(){
   });
 }
 
+// Mobile admin back button
+const adminBackBtn = document.getElementById('admin-back-btn');
+if(adminBackBtn){
+  adminBackBtn.addEventListener('click',()=>{
+    document.getElementById('admin-sidebar').classList.remove('msg-open');
+    document.getElementById('admin-detail-pane').classList.remove('msg-open');
+    adminBackBtn.style.display='none';
+  });
+}
+
 function openMessage(i){
   currentMsg = messages[i];
   document.getElementById('admin-placeholder').style.display='none';
+  // Mobile: show detail, hide sidebar
+  const isMobile = window.innerWidth <= 768;
+  if(isMobile){
+    const sb = document.getElementById('admin-sidebar');
+    const dp = document.getElementById('admin-detail-pane');
+    if(sb) sb.classList.add('msg-open');
+    if(dp) dp.classList.add('msg-open');
+    if(adminBackBtn) adminBackBtn.style.display='block';
+  }
   const dc = document.getElementById('admin-detail-content');
   dc.style.display='flex'; dc.style.flexDirection='column'; dc.style.flex='1'; dc.style.overflow='hidden';
   document.getElementById('d-name').textContent = currentMsg.name;
